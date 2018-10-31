@@ -17,8 +17,6 @@ package com.example.android.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,20 +27,20 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
-        ArrayList<String> words = new ArrayList<>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("ten");
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
+        WordAdapter itemsAdapter = new WordAdapter(this, words);
 
-        GridView listView = (GridView) findViewById(R.id.list);
+        ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
     }
